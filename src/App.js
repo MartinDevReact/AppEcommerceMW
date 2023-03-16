@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <ItemListContainer datail="Detalle de los articulos a vender!"  />
+        <ItemListContainer greeting="Saludo por Prop!"  />
         <div >
           <div >
             <h1>articulos</h1>
