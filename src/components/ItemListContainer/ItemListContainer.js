@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { getArticulos } from '../../mock/FakeApiArticulos';
+import CardList from '../CardList/CardList';
 
-const ItemListContainer = (props) => {
+const ItemListContainer = ({ greeting }) => {
+  const [listaArticulos, setListaArticulos] = useState([]);
+
+  useEffect(() => {
+    getArticulos()
+      .then((res) => setListaArticulos(res))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <div>
-        <h1 style={{ color: "Blue" }} > ItemListContainer + {props.greeting}  </h1>
+      <h2>{greeting}</h2>
+      <CardList listaArticulos={listaArticulos}/>
     </div>
-  )
-}
+  );
+};
 
-export default ItemListContainer
-
+export default ItemListContainer;
 

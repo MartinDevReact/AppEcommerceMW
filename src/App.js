@@ -1,33 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// COMPONENTS
-import NavBar from "./components/NavBar/NavBar";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import Header from "./components/Header/Header";
+import Nav from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 
-class App extends Component {
-  render() {
-    return (
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
+import ArtDetail from "./pages/ArtDetail/ArtDetail";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
+
+const App = () => {
+  return (
+    <Router>
       <div className="App">
-        <NavBar />
-        <ItemListContainer greeting="Saludo por Prop!"  />
-        <div >
-          <div >
-            <h1>articulos</h1>
-            <h1>articulos</h1>
-            <h1>articulos</h1>
-            <h1>articulos</h1>
-            <h1>articulos</h1>
-            <h1>articulos</h1>
-            <h1>articulos</h1>
-          </div>
-          <Footer />
-        </div>
+        <Header />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/ArtDetail/:id" element={<ArtDetail />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+        <Footer/>
       </div>
-    );
-  }
-}
+    </Router>
+  );
+};
 
 export default App;
 
