@@ -1,26 +1,57 @@
 import React, { useEffect, useState } from 'react';
-import { getArticulos } from '../../mock/FakeApiArticulos';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import Spiner from '../Spinner/Spinner'
+import Spinner from "../Spinner/Spinner";
+import {  collection,  query,  getDocs,  where,  documentId,} from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
+import { useParams } from "react-router-dom";
 
-const ItemDetailContainer = ({idArt}) => {
+const ItemDetailContainer = () => {
  
-  const [detalleArticulo, setDetalleArticulo] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [detalleArticulo, setDetalleArticulo] = useState([]);
   
+  const [isLoading, setIsLoading] = useState(true);
+  
+  let { id } = useParams();
+
   useEffect(() => {
-    getArticulos()
-      .then((res) => setDetalleArticulo(res.find((item) => item.id === idArt)))
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
-  }, [idArt]);
+    const getArticulos = async () => {
+      const q = query(collection(db, "Articulos"), where(documentId(), "==", id));
+      const docs = [];
+      const querySnapshot = await getDocs(q);
 
-  return (
-    <div>
-      {loading ? <Spiner /> : <ItemDetail detalleArticulo={detalleArticulo} />}
-    </div>
-  );
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setDetalleArticulo(docs);
+    };
+    getArticulos();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, [id]);
 
+
+  
+     return (
+      <>
+        {isLoading ? (
+          <div className="Spinner">
+            <Spinner />
+          </div>
+        ) : (
+          <div >
+            {detalleArticulo.map((data) => {
+              return (             
+                  <ItemDetail detalleArticulo={data} key={data.id}/>
+              );
+            })}
+          </div>
+        )}
+      </>
+    );  
+
+    
 };
+
 
 export default ItemDetailContainer;

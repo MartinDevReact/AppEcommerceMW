@@ -1,10 +1,11 @@
 import React from "react";
 import "./NavBar.css";
 import Shop from "../Shop/Shop";
+import MenuCategory from '../MenuCategory/MenuCategory'
 import img from "../../Images/LogoMW_3.png";
 import { Link } from "react-router-dom";
 
-const NavBar = ({cantArt}) => {
+const NavBar = () => {
   return (
     <nav className="Navigation">
       <ul className="List-ul">
@@ -12,20 +13,31 @@ const NavBar = ({cantArt}) => {
           <img src={img} alt="LogoMW" width="200px" />
         </Link>
         <Link className="Link" to="/">
-          Ver Articulos
+          ARTICULOS
         </Link>
+        <MenuCategory/>  
         <Link className="Link" to="/about">
-          Quienes Somos
+          QUIENES SOMOS
         </Link>
         <Link className="Link" to="/contact">
-          Contactos
+          CONTACTO
         </Link>
-        <li>
-          <Shop cantArt={cantArt}/>
-        </li>
+        <Link className="Link" to="/cart">
+          <Shop />
+        </Link>
       </ul>
     </nav>
   );
 };
 
-export default NavBar;
+export default NavBar;        
+
+/*
+        <li>
+          <Shop cantArt={cantArt}/>
+        </li>
+
+<li>
+  <SelectCategory/>
+</li>
+*/

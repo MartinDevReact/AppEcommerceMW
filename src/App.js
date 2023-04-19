@@ -11,23 +11,34 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import ArtDetail from "./pages/ArtDetail/ArtDetail";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import CartPage from "./pages/CartPage/CartPage";
+import ArtCategory from  "./pages/ArtCategory/ArtCategory";
+import CartConfirm from  "./pages/CartConfirm/CartConfirm";
+
+import { CartProvider } from './components/Contexts/CartContext';
+
 
 const App = () => {
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/ArtDetail/:id" element={<ArtDetail />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-        <Footer/>
-      </div>
-    </Router>
+    <CartProvider>
+      <Router>
+        <div className="App">
+          <Header />
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/ArtDetail/:id" element={<ArtDetail />} />
+            <Route path="*" element={<ErrorPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/ArtCategory/:category" element={<ArtCategory />} />
+            <Route path="/CartConfirm" element={<CartConfirm />} />
+          </Routes>
+          <Footer/>
+        </div>
+      </Router>
+    </CartProvider>
   );
 };
 

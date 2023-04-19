@@ -5,7 +5,7 @@ import ItemListContainer from "../../components/ItemListContainer/ItemListContai
 const Home = () => {
   return (
     <div>
-      <ItemListContainer/>
+      <ItemListContainer greeting='Seleccione el articulo que desea agregar al carrito de compras....'/>
     </div>
   );
 };

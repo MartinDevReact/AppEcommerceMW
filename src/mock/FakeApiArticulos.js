@@ -2,11 +2,12 @@ const articulos = [
     {
       id: '01',
       name: 'Junta Homocinetica Skf',
-      category: 'suspencion',
+      category: 'Suspención',
       description: 'Junta Homocinetica Skf Vkja 2622 A FORD - 19 Bicuerpo - 1.9D 65Cv Diesel F8Q-740',
       price: 75,
       img: '01.png',
       stock: 5,
+      
     },
     {
       id: '02',
@@ -16,6 +17,7 @@ const articulos = [
       price: 70,
       img: '02.png',
       stock: 15,
+      
     },
     {
       id: '03',
@@ -25,6 +27,7 @@ const articulos = [
       price: 100,
       img: '03.png',
       stock: 7,
+      
     },
     {
       id: '04',
@@ -34,15 +37,17 @@ const articulos = [
       price: 75,
       img: '04.png',
       stock: 3,
+      
     },
     {
       id: '05',
       name: 'Junta Pluricinetica Skf',
-      category: 'suspencion',
+      category: 'Suspención',
       description: 'Junta Pluricinetica Skf Vkja 2622 A FORD - 19 Bicuerpo - 1.9D 65Cv Diesel F8Q-740',
       price: 75,
       img: '05.png',
       stock: 5,
+      
     },
     {
       id: '06',
@@ -52,6 +57,7 @@ const articulos = [
       price: 70,
       img: '06.png',
       stock: 15,
+      
     },
     {
       id: '07',
@@ -61,6 +67,7 @@ const articulos = [
       price: 100,
       img: '07.png',
       stock: 7,
+      
     },
     {
       id: '08',
@@ -70,6 +77,7 @@ const articulos = [
       price: 75,
       img: '08.png',
       stock: 3,
+      
     },
   ];
   

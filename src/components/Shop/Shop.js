@@ -1,18 +1,16 @@
-import React from "react";
+import React , { useContext }from "react";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { CartContext } from '../Contexts/CartContext';
 
-const Shop = ({cantArt}) => {
+const Shop = () => {
+  const { cartItems } = useContext(CartContext);
+
   return (
     <div style={{ display: "flex" }}>
       <AddShoppingCartIcon sx={{ color: "white" }} />
-      <span style={{ color: "white" }}>{cantArt}</span>
+      <span style={{ color: "white" }}>{ cartItems.length }</span>
     </div>
   );
 
 };
-
-Shop.defaultProps = {
-  cantArt: 1000,
-};
-
 export default Shop;
