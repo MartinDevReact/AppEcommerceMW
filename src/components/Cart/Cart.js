@@ -15,7 +15,7 @@ const Cart = () => {
     },  
   };
 
-  const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
+  const totalPrice = cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0);
 
   return (
     <>

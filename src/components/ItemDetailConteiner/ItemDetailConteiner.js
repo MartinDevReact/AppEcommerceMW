@@ -29,9 +29,7 @@ const ItemDetailContainer = () => {
       setIsLoading(false);
     }, 1000);
   }, [id]);
-
-
-  
+ 
      return (
       <>
         {isLoading ? (
@@ -49,9 +47,5 @@ const ItemDetailContainer = () => {
         )}
       </>
     );  
-
-    
 };
-
-
 export default ItemDetailContainer;

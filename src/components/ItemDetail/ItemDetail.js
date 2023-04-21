@@ -3,16 +3,12 @@ import ItemCount from '../ItemCount/ItemCount';
 import { CartContext } from  '../Contexts/CartContext';
 import "./ItemDetail.css";
 
-
 const ItemDetail = ({detalleArticulo}) => {
 
   const { addToCart } = useContext(CartContext);
   const { name, description, price, stock, img } = detalleArticulo;
- 
-   //console.log(detalleArticulo);
 
   const onAdd = (cantidad) => {
-    //console.log(`Compraste ${cantidad} items`);
     addToCart(detalleArticulo, cantidad);
   };
 
@@ -30,20 +26,3 @@ const ItemDetail = ({detalleArticulo}) => {
 };
 
 export default ItemDetail;
-
-
-
-
-/*
-
-
-   <Button
-        className="btn"
-        //disabled={count === 0 || stock === 0}
-        //onClick={() => onAdd(count)}
-        onClick={() => <Link className="Link" to="/"></Link>}
-      >
-        Agregar al carrito
-      </Button>
-
-*/

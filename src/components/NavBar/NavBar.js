@@ -30,14 +30,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;        
-
-/*
-        <li>
-          <Shop cantArt={cantArt}/>
-        </li>
-
-<li>
-  <SelectCategory/>
-</li>
-*/
+export default NavBar;  

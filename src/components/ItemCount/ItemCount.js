@@ -5,14 +5,6 @@ import { Link } from "react-router-dom";
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [count, setCount] = useState(initial);
   
-
-  const styles = {
-    link: {
-      color: "White",
-      textDecoration: "underline"
-    },  
-  };
-
   const restar = () => {
     if (count > 0) {
       setCount(count - 1);
@@ -42,11 +34,16 @@ const ItemCount = ({ stock, initial, onAdd }) => {
       >
         Agregar al Carrito
       </Button>
-      <div >
-          <Link to="/" style={styles.link} >
-            <p > Buscar articulos </p>
-          </Link>       
+
+      <div style={{ display: "flex",  justifyContent: "space-between", alignItems: "center" }}>
+        <Link to="/" style={ {color: "White",marginLeft: "600px", textDecoration: "underline"} }>
+          <p>Buscar articulos</p>
+        </Link>
+        <Link to="/cart"  style={ {color: "White",marginRight: "600px", textDecoration: "underline"} }>
+          <p>Ver Carrito</p>
+        </Link>
       </div>
+
     </>
   );
 };

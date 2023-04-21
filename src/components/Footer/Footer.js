@@ -8,9 +8,7 @@ function Footer() {
         <div className="main-footer">
            <BottomNavigation />
         </div>
-
     );
-
 }
 
 export default Footer;

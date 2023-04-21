@@ -1,29 +1,43 @@
-import React,{useContext} from 'react'
-import { Button } from "@mui/material";
-import { CartContext } from  '../Contexts/CartContext';
+
+import React, { useContext } from 'react';
+import { Button, Grid } from '@mui/material';
+import { CartContext } from '../Contexts/CartContext';
+import './CartItem.css';
 
 export const CartItem = ({ item }) => {
   const { removeFromCart } = useContext(CartContext);
-  return (
-    <div>
-      <ul >
-        <li key={item.id} style={{ display: "flex", alignItems: "center" }}>
-          <div style={{ border: "1px solid #ccc", padding: "10px", borderRadius: "10px", marginRight: "20px" }}>
-            <img src={item.img} alt={item.name} style={{ width: "100px", height: "100px" }} />
-          </div>
-          <div style={{ flex: 1 }}>
-            <div style={{ fontSize: "1.2rem", fontWeight: "bold" }}>{item.name}</div>
-            <div>Cantidad: {item.quantity}</div>
-            <div>Precio: $ {item.price}</div>
-            <Button className="btn" onClick={() => removeFromCart(item)}>
-              Eliminar
-            </Button>
-          </div>
-        </li>
-      </ul>
-      
-    </div>
-  )
-}
-export default CartItem;
 
+  return (
+    <Grid container spacing={2} className="cart-item-container">
+      <Grid item xs={1}>
+        <div className="image-container">
+          <img
+            src={item.img}
+            alt={item.name}
+            className="image"
+          />
+        </div>
+      </Grid>
+      <Grid item xs={2}>
+        <div className="details-container">
+          <div className="item-name">{item.name}</div>
+          <div className="item-quantity">Cantidad: {item.quantity}</div>
+          <div className="item-price">Precio: $ {item.price}</div>
+        </div>
+      </Grid>
+      <Grid item xs={1}>
+        <div className="details-container">
+           <Button
+            variant="contained"
+            className="delete-button"
+            onClick={() => removeFromCart(item)}
+          >
+            Eliminar
+          </Button>
+        </div>
+      </Grid>
+    </Grid>
+  );
+};
+
+export default CartItem;
